@@ -11,16 +11,30 @@ def add():
     }
     
     #   Check if number exists, if not place an automatic one
-    
-    temp_data[ticket[str(len())]] = ticket
+    temp_data[str(len(temp_data.items()) + 1)] = ticket
 
 def list_():
     print('selected list')
     for key, value in temp_data.items():
-        print(f'TASK => {value}')
+        print(f'TASK {key} => {value}')
 
 def remove():
     print('selected remove')
+    task = input("Enter the number of the task: ")
+    
+    # Check if task in temp_data
+    if str(task) not in temp_data:
+        print(f'Task {task} => not found!')
+        return remove()
+    else:
+        confirm_ver = ['yes', 'no']
+        while True:
+            confirm = input(f'Task {task} => will be deleted, are you sure? => {temp_data[str(task)]}')
+            if confirm.lower() not in confirm_ver:
+                print('Invalid option, try again!')
+            else:
+                temp_data.
+                print(f'Task {task} removed!')
 
 def edit():
     print('selected edit')
