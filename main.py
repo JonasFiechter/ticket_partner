@@ -27,8 +27,10 @@ def add():
 
 def list_():
     print('selected list')
-    for key, value in d1.temp_data.items():
-        print(f'TASK {key} => {value}')
+    for key, values in d1.temp_data.items():
+        print(f'TASK {key}: ')
+        for key_, value_ in values.items():
+            print(f'    {key_.capitalize()} => {value_}')
 
 
 def remove():
@@ -61,6 +63,7 @@ def save():
     with open('save.json', 'w') as file:
         json.dump(d1.temp_data, file, indent=4)
 
+
 def load():
     print('selected load')
     with open('save.json', 'r') as file:
@@ -75,6 +78,7 @@ def export():
 def exit():
     print('bye')
     return 'exit'
+
 
 #   Main menu
 def main_menu(command):
